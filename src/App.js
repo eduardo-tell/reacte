@@ -1,27 +1,23 @@
+// ? é usado, pois quando carregar, ele pode ser null
+
 import { useEffect, useState } from 'react';
+import axios from 'axios'
 import './App.scss';
+import { useFetch } from './hooks/useFetch';
 
 function App() {
-  const [news, setNews] = useState([])
-
-  useEffect(() => {
-    fetch("https://api.github.com/users/eduardo-tell/repos")
-    .then(results => results.json())
-    .then(json => {
-      setNews(json)
-    })  
-  }, [])
+  const { data } = useFetch("https://api.github.com/users/eduardo-tell/repos")
 
   return (
     <div>
       <ul>
-          {news.map(repo => {
-            return (
-              <li key={repo.id}>
-                {repo.name}
-              </li>
-            )
-          })}
+        {data?.map(repo => {
+          return (
+            <li key={repo.id}>
+              {repo.name}
+            </li>
+          )
+        })}
       </ul>      
     </div>
   );
