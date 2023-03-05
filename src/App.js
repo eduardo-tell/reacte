@@ -1,24 +1,19 @@
 // ? é usado, pois quando carregar, ele pode ser null
 
-import { useEffect, useState } from 'react';
-import axios from 'axios'
 import './App.scss';
 import { useFetch } from './hooks/useFetch';
+import CardRepo from './components/card-repo/CardRepo';
 
 function App() {
-  const { data } = useFetch("https://api.github.com/users/eduardo-tell/repos")
+  const { data: repositories, isFetching } = useFetch("https://api.github.com/users/eduardo-tell/repos")
 
   return (
-    <div>
-      <ul>
-        {data?.map(repo => {
-          return (
-            <li key={repo.id}>
-              {repo.name}
-            </li>
-          )
-        })}
-      </ul>      
+    <div className={ isFetching && 'loading' }>
+      {repositories?.map(repo => {
+        return (
+          <CardRepo title={ repo.name } id={ repo.id } />
+        )
+      })}
     </div>
   );
 }
