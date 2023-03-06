@@ -11,17 +11,25 @@ function App() {
   const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.includes(search)) : repositories
 
   return (
-    <>
-      <fieldset>
-        <input itemType='text' name='busca' placeholder='Buscar...' onChange={e => setSearch(e.target.value)} value={search} />
-      </fieldset>
+    <main className="main-content">
+      <div className="container">
+        <div className="row row-cols-12">
+          <fieldset>
+            <input itemType='text' name='busca' placeholder='Buscar...' onChange={e => setSearch(e.target.value)} value={search} />
+          </fieldset>
+        </div>
+      </div>
 
-      {filteredRepos?.map(repo => {
-        return (
-          <CardRepo key={ repo.id } title={ repo.name } />
-        )
-      })}
-    </>
+      <div className="container">
+        <div className="row row-cols-3">
+          {filteredRepos?.map(repo => {
+            return (
+              <CardRepo key={ repo.id } title={ repo.name } />
+            )
+          })}
+        </div>
+      </div>
+    </main>
   );
 }
 
