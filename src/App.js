@@ -3,18 +3,25 @@
 import './App.scss';
 import { useFetch } from './hooks/useFetch';
 import CardRepo from './components/card-repo/CardRepo';
+import { useState } from 'react';
 
 function App() {
-  const { data: repositories, isFetching } = useFetch("https://api.github.com/users/eduardo-tell/repos")
+  const { data: repositories } = useFetch("https://api.github.com/users/eduardo-tell/repos")
+  const [ search, setSearch ] = useState('')
+  const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.includes(search)) : repositories
 
   return (
-    <div className={ isFetching && 'loading' }>
-      {repositories?.map(repo => {
+    <>
+      <fieldset>
+        <input itemType='text' name='busca' placeholder='Buscar...' onChange={e => setSearch(e.target.value)} value={search} />
+      </fieldset>
+
+      {filteredRepos?.map(repo => {
         return (
-          <CardRepo title={ repo.name } id={ repo.id } />
+          <CardRepo key={ repo.id } title={ repo.name } />
         )
       })}
-    </div>
+    </>
   );
 }
 
