@@ -1,10 +1,9 @@
 import React from "react";
-import './card-repo-styles.scss';
 
-function CardRepo({id, title}) {
+function CardRepo({title}) {
     return (
-        <div className="card">
-            <div className="card-body">
+        <div className="md:w-12">
+            <div className="bg-white">
                 <h4>{ title }</h4>
             </div>
         </div>

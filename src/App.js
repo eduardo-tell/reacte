@@ -1,6 +1,5 @@
 // ? é usado, pois quando carregar, ele pode ser null
 
-import './App.scss';
 import { useFetch } from './hooks/useFetch';
 import CardRepo from './components/card-repo/CardRepo';
 import { useState } from 'react';
@@ -13,7 +12,7 @@ function App() {
   return (
     <main className="main-content">
       <div className="container">
-        <div className="row row-cols-12">
+        <div className="row">
           <fieldset>
             <input itemType='text' name='busca' placeholder='Buscar...' onChange={e => setSearch(e.target.value)} value={search} />
           </fieldset>
@@ -21,7 +20,7 @@ function App() {
       </div>
 
       <div className="container">
-        <div className="row row-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {filteredRepos?.map(repo => {
             return (
               <CardRepo key={ repo.id } title={ repo.name } />
