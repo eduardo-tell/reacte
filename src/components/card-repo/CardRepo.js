@@ -2,10 +2,8 @@ import React from "react";
 
 function CardRepo({title}) {
     return (
-        <div className="md:w-12">
-            <div className="bg-white">
-                <h4>{ title }</h4>
-            </div>
+        <div className="p-5 bg-slate-200 rounded-md shadow">
+            <h4>{ title }</h4>
         </div>
     )
 }
