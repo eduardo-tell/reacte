@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FavoritesContext } from "../../context/Favorites";
 import CardRepo from "../card-repo/CardRepo";
 import './styles.scss';
@@ -18,9 +18,7 @@ export default function Favorites() {
             <div className={`list-favorites--${styleListFavorites === true ? "open" : "close"}`}>
                 {favorites.map(favorite => {
                     return (
-                        <div>
-                            <CardRepo key={favorite.id} title={favorite.name} id={favorite.id} />
-                        </div>
+                        <   CardRepo key={favorite.id} title={favorite.name} id={favorite.id} />
                     )
                 })}
             </div>

@@ -11,7 +11,7 @@ export default function App() {
   const { data: repositories } = useFetch("https://api.github.com/users/eduardo-tell/repos")
   const [ search, setSearch ] = useState('')
   const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.includes(search)) : repositories
-  const { favorites, toggleFavoriteItem, clearFavorites }= useContext(FavoritesContext)
+  const { toggleFavoriteItem }= useContext(FavoritesContext)
 
   return (
     <>
