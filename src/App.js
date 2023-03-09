@@ -15,7 +15,6 @@ export default function App() {
 
   return (
     <>
-      <p>{favorites.length}</p>
       <div className="p-6">
         <Header />
         
@@ -28,8 +27,8 @@ export default function App() {
             <div className="mt-6 grid md:grid-cols-4 gap-4">
               {filteredRepos?.map(repo => {
                 return (
-                  <button key={repo.id} onClick={() => toggleFavoriteItem(repo.id)}>
-                    <CardRepo title={repo.name} />
+                  <button key={repo.id} onClick={() => toggleFavoriteItem(repo)}>
+                    <CardRepo title={repo.name} id={repo.id} />
                   </button>
                 )
               })}

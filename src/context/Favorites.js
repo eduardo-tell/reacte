@@ -5,16 +5,12 @@ export const FavoritesContext = createContext();
 export const FavoritesProvider = ({children}) => {
     const [favorites, setFavorite] = useState([])
 
-    useEffect(() => {
-        console.log(favorites);
-    }, [favorites])
-
-    function toggleFavoriteItem(id) {
+    function toggleFavoriteItem(favorite) {
         const copyItensFavorite = [...favorites]
-        var index = copyItensFavorite.indexOf(id);
+        var index = copyItensFavorite.indexOf(favorite);
 
         if (index === -1) {
-            copyItensFavorite.push(id);
+            copyItensFavorite.push(favorite);
         } else {
             copyItensFavorite.splice(index, 1);
         }
