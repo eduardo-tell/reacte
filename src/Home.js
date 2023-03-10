@@ -7,7 +7,7 @@ import CardRepo from './components/card-repo/CardRepo';
 import Header from './components/header/Header';
 import { FavoritesContext } from './context/Favorites';
 
-export default function App() {
+export default function Home() {
   const { data: repositories } = useFetch("https://api.github.com/users/eduardo-tell/repos")
   const [ search, setSearch ] = useState('')
   const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.includes(search)) : repositories

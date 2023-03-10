@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-import App from './App';
+import Home from './Home';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-import Home from './routes/Home';
 import { FavoritesProvider } from './context/Favorites';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
     children: [
       { path: "/", element: <Home /> }
     ]
@@ -21,6 +19,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <FavoritesProvider>
-    <RouterProvider router={router} />
+    <RouterProvider exact router={router} />
   </FavoritesProvider>
 );
