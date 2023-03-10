@@ -1,11 +1,9 @@
 // ? é usado, pois quando carregar, ele pode ser null
 
-import { useFetch } from './hooks/useFetch';
+import { useFetch } from '../hooks/useFetch';
 import React, { useState, useContext } from 'react';
-
-import CardRepo from './components/card-repo/CardRepo';
-import Header from './components/header/Header';
-import { FavoritesContext } from './context/Favorites';
+import CardRepo from '../components/card-repo/CardRepo';
+import { FavoritesContext } from '../context/Favorites';
 
 export default function Home() {
   const { data: repositories } = useFetch("https://api.github.com/users/eduardo-tell/repos")
@@ -13,18 +11,16 @@ export default function Home() {
   const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.includes(search)) : repositories
   const { toggleFavoriteItem }= useContext(FavoritesContext)
 
-  return (
+  return (    
     <>
       <div className="p-6">
-        <Header />
-        
         <main className="main-content">
-          <fieldset className=''>
+          <fieldset className='container m-auto'>
             <input itemType='text' name='busca' placeholder='Buscar...' onChange={e => setSearch(e.target.value)} value={search} className="border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded sm:text-xl focus:ring-1" />
           </fieldset>
 
-          <div className="container">
-            <div className="mt-6 grid md:grid-cols-4 gap-4">
+          <div className="container m-auto">
+            <div className="mt-6 grid md:grid-flow-col-dense gap-4">
               {filteredRepos?.map(repo => {
                 return (
                   <button key={repo.id} onClick={() => toggleFavoriteItem(repo)}>

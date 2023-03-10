@@ -12,15 +12,17 @@ export default function Favorites() {
     }
 
     return (
-        <div className="p-1">
+        <div className="p-1 relative">
             <button onClick={toggleFavorites}> {favorites.length} Favoritos </button>
 
-            <div className={`list-favorites--${styleListFavorites === true ? "open" : "close"}`}>
-                {favorites.map(favorite => {
-                    return (
-                        <   CardRepo key={favorite.id} title={favorite.name} id={favorite.id} />
-                    )
-                })}
+            <div className={`list-favorites list-favorites--${styleListFavorites === true ? "open" : "close"} relative`}>
+                <div className="list-favorites__items">
+                    {favorites.map(favorite => {
+                        return (
+                            <CardRepo key={favorite.id} title={favorite.name} id={favorite.id} />
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )

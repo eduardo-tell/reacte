@@ -1,13 +1,15 @@
 .list-favorites {
-    &--open {
-        transition: 1s;
-        overflow: auto;
-        max-height: 1000px;
+    &--open &__items {        
+        opacity: 1;
     }
 
-    &--close {
-        transition: 1s;
-        max-height: 0;
-        overflow: hidden;
+    &__items {
+        top: 0;
+        position: absolute;
+        transition: 0.2s ease;
+    }    
+
+    &--close &__items {
+        opacity: 0;
     }
 }
