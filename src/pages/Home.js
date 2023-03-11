@@ -1,15 +1,13 @@
 // ? é usado, pois quando carregar, ele pode ser null
 
 import { useFetch } from '../hooks/useFetch';
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import CardRepo from '../components/card-repo/CardRepo';
-import { FavoritesContext } from '../context/Favorites';
 
 export default function Home() {
   const { data: repositories } = useFetch("https://api.github.com/users/eduardo-tell/repos")
   const [ search, setSearch ] = useState('')
   const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.includes(search)) : repositories
-  const { toggleFavoriteItem }= useContext(FavoritesContext)
 
   return (    
     <>
@@ -23,9 +21,7 @@ export default function Home() {
             <div className="mt-6 grid md:grid-flow-col-dense gap-4">
               {filteredRepos?.map(repo => {
                 return (
-                  <button key={repo.id} onClick={() => toggleFavoriteItem(repo)}>
-                    <CardRepo title={repo.name} id={repo.id} />
-                  </button>
+                  <CardRepo key={repo.id} props={repo} />
                 )
               })}
             </div>

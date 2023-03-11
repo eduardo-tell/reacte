@@ -9,7 +9,7 @@ export default function Header() {
                 <nav className="">
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <button className="rounded-lg p-2"> <Link to="/">Home</Link> </button>
                         </li>
                     </ul>
                 </nav>

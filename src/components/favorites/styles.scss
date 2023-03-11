@@ -1,15 +1,13 @@
 .list-favorites {
-    &--open &__items {        
-        opacity: 1;
-    }
-
     &__items {
         top: 0;
+        right: 0;
+        width: 20rem;
         position: absolute;
         transition: 0.2s ease;
-    }    
-
-    &--close &__items {
+    } 
+    
+    &:not(&--open) {
         opacity: 0;
     }
 }

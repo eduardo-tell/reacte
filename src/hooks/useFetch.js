@@ -10,7 +10,7 @@ export function useFetch(url) {
         axios.get(url).then(response => {
             setData(response.data)
         })
-    })
+    }, [url])
 
     return { data }
 }
