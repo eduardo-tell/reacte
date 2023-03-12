@@ -10,9 +10,11 @@ import Layout from './Layout';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <FavoritesProvider>
-    <BrowserRouter basename='/reacte'>
-      <Routes>        
-          <Route exact path="/reacte" element={<Home />}></Route>
+    <BrowserRouter basename='/'>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route exact path="/" element={<Home />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </FavoritesProvider>
