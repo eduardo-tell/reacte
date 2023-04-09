@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FavoritesContext } from "../../context/Favorites";
-import CardRepo from "../card-repo/CardRepo";
+import CardUser from "../card-user/CardUser";
 import './styles.scss';
 
 export default function Favorites() {
@@ -19,7 +19,7 @@ export default function Favorites() {
                 <div className="list-favorites__items p-2 bg-white grid gap-2 rounded-md shadow-sm">
                     {favorites.map(favorite => {
                         return (
-                            <CardRepo key={favorite.id} props={favorite} />
+                            <CardUser key={favorite.id} props={favorite} />
                         )
                     })}
                 </div>

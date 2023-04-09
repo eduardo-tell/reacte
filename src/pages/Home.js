@@ -2,10 +2,10 @@
 
 import { useFetch } from '../hooks/useFetch';
 import React, { useState } from 'react';
-import CardRepo from '../components/card-repo/CardRepo';
+import CardUser from '../components/card-user/CardUser';
 
 export default function Home() {
-  const { data: repositories } = useFetch("https://api.github.com/users/eduardo-tell/repos")
+  const { data: repositories } = useFetch("https://jsonplaceholder.typicode.com/users/")
   const [ search, setSearch ] = useState('')
   const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.toLowerCase().includes(search.toLowerCase())) : repositories
 
@@ -21,7 +21,7 @@ export default function Home() {
             <div className="mt-6 grid md:grid-flow-col-dense gap-4">
               {filteredRepos?.map(repo => {
                 return (
-                  <CardRepo key={repo.id} props={repo} />
+                  <CardUser key={repo.id} props={repo} />
                 )
               })}
             </div>

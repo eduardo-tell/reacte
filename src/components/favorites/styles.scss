@@ -1,13 +1,16 @@
 .list-favorites {
+    display: block;
+
     &__items {
         top: 0;
         right: 0;
         width: 20rem;
         position: absolute;
-        transition: 0.2s ease;
+        max-height: 500px;
+        overflow-y: auto;
     } 
     
     &:not(&--open) {
-        opacity: 0;
+        display: none;        
     }
 }
