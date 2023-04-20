@@ -1,11 +1,18 @@
-// ? é usado, pois quando carregar, ele pode ser null
-
-import { useFetch } from '../hooks/useFetch';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardUser from '../components/card-user/CardUser';
+import { useDispatch, useSelector } from 'react-redux';
+import { addRepo } from './../features/repositories/repositories';
+import { useFetch } from '../hooks/useFetch';
 
 export default function Home() {
-  const { data: repositories } = useFetch("https://jsonplaceholder.typicode.com/users/")
+  const dispatch = useDispatch();
+  const repositories = useSelector(state => state.repositories)
+  const { data: repositoriesStart } = useFetch("https://jsonplaceholder.typicode.com/users/")
+
+  useEffect(() => {
+    dispatch(addRepo(repositoriesStart))
+  }, [repositoriesStart])
+
   const [ search, setSearch ] = useState('')
   const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.toLowerCase().includes(search.toLowerCase())) : repositories
 
@@ -18,7 +25,7 @@ export default function Home() {
           </fieldset>
 
           <div className="container m-auto">
-            <div className="mt-6 grid md:grid-flow-col-dense gap-4">
+            <div className="mt-6 grid grid-cols-4 gap-4">
               {filteredRepos?.map(repo => {
                 return (
                   <CardUser key={repo.id} props={repo} />

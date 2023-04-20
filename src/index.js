@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from "react-redux";
 import './index.scss';
 import Home from './pages/Home';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { FavoritesProvider } from './context/Favorites';
 import Layout from './Layout';
 import Repo from './pages/Repo';
+import store from "./storage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <FavoritesProvider>
+  <Provider store={store}>
     <BrowserRouter basename='/'>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -19,5 +20,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </FavoritesProvider>
+  </Provider>
 );
