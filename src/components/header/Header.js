@@ -12,9 +12,12 @@ export default function Header() {
         <div className="mb-2 p-2 bg-slate-200 dark:bg-slate-800">
             <div className="container m-auto flex flex-nowrap justify-between">
                 <nav className="">
-                    <ul>
+                    <ul className="flex">
                         <li>
-                            <button className="rounded-lg p-2"> <Link to="/" className="dark:text-white">Home</Link> </button>
+                            <button className="rounded-lg p-2"> <Link to="/" className="dark:text-white">Início</Link> </button>
+                        </li>
+                        <li>
+                            <button className="rounded-lg p-2"> <Link to="/repositorio" className="dark:text-white">Detalhes</Link> </button>
                         </li>
                     </ul>
                 </nav>

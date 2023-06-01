@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import repositoriesReducer from "./features/repositories/repositories"
+import productsReducer from "./features/products/products"
 import favoritesReducer from "./features/favorites/favorites"
 
 const localStorageMiddleware = store => next => action => {
@@ -12,7 +12,7 @@ const persistedState = localStorage.getItem('myReduxState') ? JSON.parse(localSt
 
 const store = configureStore({
   reducer: {
-    repositories: repositoriesReducer,
+    products: productsReducer,
     favorites: favoritesReducer
   },  
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(localStorageMiddleware),

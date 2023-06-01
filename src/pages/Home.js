@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import CardUser from '../components/card-user/CardUser';
+import CardProduct from '../components/card-product/CardProduct';
 import { useDispatch, useSelector } from 'react-redux';
-import { addRepo } from './../features/repositories/repositories';
+import { addProduct } from '../features/products/products';
 import { useFetch } from '../hooks/useFetch';
 
 export default function Home() {
   const dispatch = useDispatch();
-  const repositories = useSelector(state => state.repositories)
-  const { data: repositoriesStart } = useFetch("https://jsonplaceholder.typicode.com/users/")
+  const products = useSelector(state => state.products)
+  const { data: productsStart } = useFetch("https://dummyjson.com/products?limit=8")
 
-  useEffect(() => {
-    dispatch(addRepo(repositoriesStart))
-  }, [repositoriesStart])
+  // Exemplo de como salvar no cache
+  // useEffect(() => {
+  //   dispatch(addProduct(productsStart))
+  // }, [productsStart])
 
   const [ search, setSearch ] = useState('')
-  const filteredRepos = search.length > 0 ? repositories.filter(repo => repo.name.toLowerCase().includes(search.toLowerCase())) : repositories
+  const filteredProducts = search.length > 0 ? products.filter(product => product.title.toLowerCase().includes(search.toLowerCase())) : products
 
   return (    
     <>
@@ -26,9 +27,9 @@ export default function Home() {
 
           <div className="container m-auto">
             <div className="mt-6 grid grid-cols-4 gap-4">
-              {filteredRepos?.map(repo => {
+              {filteredProducts?.map(product => {
                 return (
-                  <CardUser key={repo.id} props={repo} />
+                  <CardProduct key={product.id} props={product} />
                 )
               })}
             </div>

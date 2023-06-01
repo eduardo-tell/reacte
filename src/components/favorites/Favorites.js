@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CardUser from "../card-user/CardUser";
+import CardProduct from "../card-product/CardProduct";
 import { useSelector } from "react-redux";
 import './styles.scss';
 
@@ -19,7 +19,7 @@ export default function Favorites() {
         <div className="list-favorites__items p-2 bg-white grid gap-2 rounded-md shadow-sm">
           {favorites.favorites?.map(favorite => {
             return (
-              <CardUser key={favorite.id} props={favorite} />
+              <CardProduct key={favorite.id} props={favorite} />
             )
           })}
         </div>
