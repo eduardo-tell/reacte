@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const favorites = createSlice({
   name: 'favorites',
-  initialState: { favorites: [] },
+  initialState: [],
   reducers: {
     toggleFavorite : (state, action) => {
       var index = state.favorites.map(favorite => favorite.id).indexOf(action.payload.id)
