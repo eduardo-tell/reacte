@@ -1,17 +1,36 @@
 import styled from 'styled-components'
 
-export const CardProductStyle = styled.div`
+export const ContentBody = styled.div`
     height: 20rem;
-    
-    &__image {
-        height: 30%;
+`
+export const CardProductImage = styled.div`
+    height: 60%;
+    display: block;
+    overflow: hidden;
+
+    picture {
+        width: 100%;
+        padding-top: 5rem;
         overflow: hidden;
 
         img {
             object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
+
 `
+
+export const CardProductContent = styled.div`
+    height: 20%;
+`
+
+export const CardProductActions = styled.div`
+    height: 20%;
+`
+
 // button.favorited {
 //     background-color: green;
 // }

@@ -4,13 +4,15 @@ const favorites = createSlice({
   name: 'favorites',
   initialState: [],
   reducers: {
-    toggleFavorite : (state, action) => {
-      var index = state.favorites.map(favorite => favorite.id).indexOf(action.payload.id)
+    toggleFavorite(state, action) {
+      if (action.payload) {
+        var index = state.map(favorite => favorite.id).indexOf(action.payload.id)
 
-      if (index === -1) {
-        state.favorites.push(action.payload)
-      } else {
-        state.favorites.splice(index, 1)
+        if (index === -1) {
+          state.push(action.payload)
+        } else {
+          state.splice(index, 1)
+        }
       }
     }
   }
