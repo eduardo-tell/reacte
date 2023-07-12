@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleFavorite } from '../../features/favorites/favorites';
+import { toggleCartProduct } from '../../features/cart/cart';
 import { ContentBody, CardProductImage, CardProductContent, CardProductActions } from './styles.tsx';
 
 export default function CardProduct({props}) {
@@ -17,7 +18,8 @@ export default function CardProduct({props}) {
                 <p className="text-blue-400"><b> ${ props.price } </b></p>
             </CardProductContent>
             <CardProductActions className="px-5 text-center">
-                <button type="button" className={`p-2 bg-blue-400 uppercase rounded-lg text-white`} onClick={() => dispatch(toggleFavorite(props))}> <b> comprar </b> </button>                
+                <button type="button" className={`p-2 bg-blue-400 uppercase rounded-lg text-white`} onClick={() => dispatch(toggleCartProduct(props))}> <b> comprar </b> </button>                
+                <button type="button" className={`p-2 bg-blue-400 uppercase rounded-lg text-white`} onClick={() => dispatch(toggleFavorite(props))}> <b> favoritar </b> </button>                
             </CardProductActions>
         </ContentBody>
     )

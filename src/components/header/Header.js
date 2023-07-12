@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Favorites from "../favorites/Favorites";
+import Cart from "../cart/Cart";
 
 export default function Header() {
     function toggleDarkTheme() {
@@ -10,7 +11,7 @@ export default function Header() {
 
     return (
         <div className="p-2 bg-slate-200 dark:bg-slate-900">
-            <div className="container m-auto flex flex-nowrap justify-between">
+            <div className="container m-auto flex flex-nowrap justify-center">
                 <nav className="">
                     <ul className="flex">
                         <li>
@@ -23,6 +24,7 @@ export default function Header() {
                 </nav>
 
                 <div className="flex">
+                    <Cart />
                     <Favorites />
 
                     <button className="mx-2" onClick={(() => toggleDarkTheme())}>
