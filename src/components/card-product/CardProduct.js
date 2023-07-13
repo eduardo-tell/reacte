@@ -17,7 +17,7 @@ export default function CardProduct({props}) {
                 <h4><b>{ props.title }</b></h4>
                 <p className="text-blue-400"><b> ${ props.price } </b></p>
             </CardProductContent>
-            <CardProductActions className="px-5 text-center">
+            <CardProductActions className="px-5">
                 <button type="button" className={`p-2 bg-blue-400 uppercase rounded-lg text-white`} onClick={() => dispatch(toggleCartProduct(props))}> <b> comprar </b> </button>                
                 <button type="button" className={`p-2 bg-blue-400 uppercase rounded-lg text-white`} onClick={() => dispatch(toggleFavorite(props))}> <b> favoritar </b> </button>                
             </CardProductActions>

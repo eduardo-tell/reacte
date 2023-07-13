@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const ButtonLink = styled.a `
   position: relative;
 `
-export const Count = styled.a `
+export const Count = styled.span `
   top: -0.3rem;
   font-size: 0.8rem;
   position: absolute;

@@ -19,7 +19,7 @@ export default function Home() {
 
   return (    
     <>
-      <div className="p-6 bg-slate-100 dark:bg-slate-800">
+      <div className="p-6 dark:bg-slate-800">
         <main className="main-content">
           <fieldset className='container m-auto'>
             <input itemType='text' name='busca' placeholder='Buscar...' onChange={e => setSearch(e.target.value)} value={search} className="border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-blue-600 block w-full rounded sm:text-xl focus:ring-1" />
