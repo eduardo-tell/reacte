@@ -7,19 +7,20 @@ import { ContentBody, CardProductImage, CardProductContent, CardProductActions }
 export default function CardProduct({props}) {
     const dispatch = useDispatch();
     return (
-        <ContentBody className="bg-white overflow-hidden shadow rounded-lg">
+        <ContentBody className="bg-white overflow-hidden">
             <CardProductImage className="CardProductStyle__image">
                 <picture>
                     <img src={props.thumbnail} alt="Imagem do produto" />
                 </picture>
             </CardProductImage>
-            <CardProductContent className="px-5 py-2">
+            <CardProductContent className="px-5">
                 <h4><b>{ props.title }</b></h4>
-                <p className="text-blue-400"><b> ${ props.price } </b></p>
+                <p><b> R${ props.price } </b></p>
             </CardProductContent>
-            <CardProductActions className="px-5">
-                <button type="button" className={`p-2 bg-blue-400 uppercase rounded-lg text-white`} onClick={() => dispatch(toggleCartProduct(props))}> <b> comprar </b> </button>                
-                <button type="button" className={`p-2 bg-blue-400 uppercase rounded-lg text-white`} onClick={() => dispatch(toggleFavorite(props))}> <b> favoritar </b> </button>                
+            <CardProductActions className="flex">
+                <button className={`flex-auto p-2 bg-green uppercase text-white border border-white bg-green-600 focus:bg-green-500 hover:bg-green-500`} onClick={() => dispatch(toggleFavorite(props))}> <b> favoritar </b> </button>
+                <button className={`flex-auto p-2 bg-green uppercase text-white border border-white bg-green-600 focus:bg-green-500 hover:bg-green-500`} onClick={() => dispatch(toggleCartProduct(props))}> <b> carrinho </b> </button>
+                <button className={`flex-auto p-2 bg-green uppercase text-white border border-white bg-green-600 focus:bg-green-500 hover:bg-green-500`} onClick={() => dispatch(toggleFavorite(props))}> <b> comprar agora </b> </button>
             </CardProductActions>
         </ContentBody>
     )

@@ -17,7 +17,7 @@ export default function Home() {
   const [ search, setSearch ] = useState('')
   const filteredProducts = search.length > 0 ? products.filter(product => product.title.toLowerCase().includes(search.toLowerCase())) : products
 
-  return (    
+  return (
     <>
       <div className="p-6 dark:bg-slate-800">
         <main className="main-content">
@@ -26,7 +26,7 @@ export default function Home() {
           </fieldset>
 
           <div className="container m-auto">
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
               {filteredProducts?.map(product => {
                 return (
                   <CardProduct key={product.id} props={product} />

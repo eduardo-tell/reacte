@@ -20,15 +20,18 @@ export const CardProductImage = styled.div`
             object-fit: cover;
         }
     }
-
 `
 
 export const CardProductContent = styled.div`
-    height: 20%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `
 
 export const CardProductActions = styled.div`
-    height: 20%;
+    height: 15%;
+    justify-content: space-between;
 `
 
 // button.favorited {
@@ -37,7 +40,7 @@ export const CardProductActions = styled.div`
 
 // .card-product {
 //     height: 20rem;
-    
+
 //     &__image {
 //         height: 30%;
 //         overflow: hidden;
